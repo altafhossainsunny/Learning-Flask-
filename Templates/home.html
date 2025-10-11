@@ -1,31 +1,55 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>Career of Altaf Hossain | Data Analytics Portfolio</title>
 </head>
-    <title>Career of Altaf hossin </title> 
-  </head>
-    <body>
-      <div class="header-box">
-      <h1> Hello There ! Welcome to my Portfolie for data analytics </h1>
-      </div>
-      <div class="info">
-        <img class=profile_pic src="{{ url_for('static', filename='profile.jpg') }}" class="profile_pic" alt="Profile Picture">
-        <p class="description">I am Altaf Hossain Sunny. 
-          Currently persuing BSc in Computer Science specilized in Data science.Here in my portfolio
-          you will find my projects and work related to data analytics and data science. Besides these here, 
-          I tried to share my proficiency by providing 
-          different courses and certificates that I have completed so far.
-        </p>
-      </div>
-      <div class="links">
-        <ul>
-          <li><a class="active" href="https://www.coursera.org/user/altafhsn" target="_blank">Facebook Profile</a></li>
-          <li><a href="https://www.kaggle.com/altafhsn" target="_blank">Kaggle Profile</a></li>
-          <li><a href="https://www.linkedin.com/in/altaf-hossain-sunny-9b0b25210/" target="_blank">LinkedIn Profile</a></li>
-          <li><a href="https://github.com/altafhsn" target="_blank">GitHub Profile</a></li>
-          <li><a href="https://www.coursera.org/user/altafhsn" target="_blank">Facebook Profile</a></li>
-        </ul>
-      </div>
-    </body>
+<body>
+    <header class="header-box">
+        <h1>Altaf Hossain's Portfolio | Data Analytics</h1>
+    </header>
+
+    <main class="main-content-grid">
+        <aside class="sidebar-left">
+            <div class="info-card">
+                <img class="profile_pic" src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Picture of Altaf Hossain">
+                <p class="description">
+                    I am **Altaf Hossain Sunny**. Currently pursuing **BSc in Computer Science** specialized in **Data Science**. Here in my portfolio, you will find my projects and work related to data analytics and data science. Besides these, I tried to share my proficiency by providing different courses and certificates that I have completed so far.
+                </p>
+            </div>
+            
+            <nav class="links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a class="active" href="https://www.coursera.org/user/altafhsn" target="_blank">Home / Coursera</a></li>
+                    <li><a href="https://www.linkedin.com/in/altaf-hossain-sunny-9b0b25210/" target="_blank">LinkedIn Profile</a></li>
+                    <li><a href="https://www.kaggle.com/" target="_blank">Kaggle Profile</a></li>
+                    <li><a href="https://github.com/" target="_blank">GitHub Profile</a></li>
+                    <li><a href="https://www.facebook.com/mdaltafhossain.sunny.1" target="_blank">Facebook Profile</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="qualification-details-section">
+            <h2 class="section-title">Academic Qualifications</h2>
+            <div class="qualification-list">
+                {% for degree in education %}
+                    <div class="degree-card">
+                        <h3>{{ degree.title }}</h3>
+                        <p class="location-year">
+                            From **{{ degree.location }}** <br>
+                            in **{{ degree.Year }}**
+                        </p>
+                        <a href="#certificate-{{ loop.index }}" class="button">See Certificates</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
 </html>

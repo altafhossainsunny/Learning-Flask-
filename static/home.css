@@ -1,92 +1,210 @@
-body{
-  background-image:url(background.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+/*
+ * Color Palette:
+ * Primary/Accent: #007BFF (Bright Blue - Professional, Techy)
+ * Background: #121212 (Dark Grey/Black - Sleek, Modern)
+ * Text/Contrast: #E0E0E0 (Light Grey - Readable)
+ * Secondary Accent: #28A745 (Green - Success, Completion)
+ */
+
+/* --- General Reset & Fonts --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    background-color: #121212; /* Dark background */
+    color: #E0E0E0; /* Light text for contrast */
+    font-family: 'Montserrat', sans-serif; /* Modern, readable font */
+    min-height: 100vh;
+    padding: 0 15px 30px 15px; /* Add some overall padding */
+    background-image: url('background.jpg'); /* Keep your background image */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* --- Header & Title --- */
 .header-box {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  margin-left: 20px;
+    text-align: center;
+    padding: 20px 0;
 }
 
 h1 {
-  color: white;
-  font-family: 'Qwitcher Grypen', cursive;
-  font-size: 30px;
-  background-color: black;
-  border: double 2px white;
-  border-radius: 5px;
-  padding: 10px 20px;
-  text-align: center;
+    font-family: 'Playfair Display', serif; /* Use a display font for impact */
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
+    color: #007BFF; /* Primary accent color */
+    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    padding: 15px 30px;
+    display: inline-block; /* Only take up necessary space */
 }
-.info{
-  position:fixed;
-  display: block;
-  left:0px;
-  top:0px;
-  width: 200px;
-  border-style: solid;
-  border-color: rgb(7, 245, 233);
-  margin-top: 40px;
-  margin-left: 10px;
-  max-height: calc(100vh - 40px);
-  overflow-y: auto;
-  direction: ltr;
+
+/* --- Main Layout with Grid --- */
+.main-content-grid {
+    display: grid;
+    /* Two columns: one narrow for the sidebar, one wider for content */
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    margin-top: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* --- Left Sidebar (Profile & Links) --- */
+.sidebar-left {
+    position: sticky; /* Keep it on screen while scrolling */
+    top: 20px;
+    align-self: start; /* Stick to the top of its grid area */
+}
+
+.info-card {
+    background-color: rgba(33, 37, 41, 0.9); /* Darker card background */
+    border: 1px solid #007BFF;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
 .profile_pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin: 20px auto 0 auto; /* centers horizontally */
-  border: 5px solid white;
-  display: block; /* ensures it stacks above the paragraph */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+    border: 4px solid #E0E0E0;
+    display: block;
+    object-fit: cover;
 }
 
 .description {
-  display: block;
-  color: black;
-  font-family: "Arial", sans-serif;
-  background-color: rgb(244, 208, 5);
-  font-weight: bold;
-  margin-top: 10px;
-  padding: 10px;
-  text-align: justify;
+    color: #E0E0E0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: justify;
 }
 
-ul {
-  list-style-type: none;
-  /* margin-left:205px ; <-- REMOVE this */
-  margin-top: 0px; /* Keep this, but we'll use 'top' for positioning */
-  width: 70px;
-  background-color: #03fb5d;
-  position: fixed;
-  overflow: auto;
-  /* ADD these for fixed positioning */
-  top: 40px; 
-  left: 215px; 
-  margin: 0; /* Ensures all default margins are gone */
-  height: 76.7%;
-  padding: 0;
+/* --- Links Section --- */
+.links {
+    background-color: rgba(33, 37, 41, 0.9);
+    border: 1px solid #007BFF;
+    border-radius: 8px;
+    padding: 15px;
 }
 
-li a {
-  display: inline-block;
-  color: black;
-  margin-left: 0px;
-  margin-top: 10px;
-  border-bottom: solid;
-  border-color: white;
-  text-decoration: none;
+.links h2 {
+    color: #007BFF;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
 }
 
-li a.active {
-  background-color: #fafafa;
-  color: rgb(6, 6, 6);
+.links ul {
+    list-style-type: none;
 }
 
-li a:hover:not(.active) {
-  background-color: #555555;
-  color: rgba(52, 173, 54, 0.619);
+.links li {
+    margin: 8px 0;
+}
+
+.links li a {
+    display: block;
+    color: #E0E0E0;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.links li a:hover:not(.active) {
+    background-color: #007BFF;
+    color: #121212;
+}
+
+.links li a.active {
+    background-color: #28A745; /* Success Green */
+    color: #121212;
+    font-weight: 600;
+}
+
+
+/* --- Qualification Details Section --- */
+.qualification-details-section {
+    padding: 20px;
+    background-color: rgba(33, 37, 41, 0.9);
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.section-title {
+    color: #28A745; /* Green Accent */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #007BFF;
+    padding-bottom: 10px;
+}
+
+.qualification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between degree cards */
+}
+
+.degree-card {
+    padding: 15px;
+    border-left: 5px solid #007BFF;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+.degree-card h3 {
+    color: #E0E0E0;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.location-year {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* --- Button Styling --- */
+.button {
+    display: inline-block;
+    background-color: #28A745; /* Success Green */
+    color: #121212;
+    text-decoration: none;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+    background-color: #1e7e34; /* Darker green on hover */
+    color: white;
+    border-color: #E0E0E0;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    .main-content-grid {
+        /* Stack columns vertically on small screens */
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-left {
+        position: static; /* Remove sticky on mobile */
+    }
+
+    .info-card {
+        text-align: center; /* Center profile info on mobile */
+    }
 }
