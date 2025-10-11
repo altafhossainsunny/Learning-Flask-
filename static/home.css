@@ -1,0 +1,92 @@
+body{
+  background-image:url(background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.header-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+h1 {
+  color: white;
+  font-family: 'Qwitcher Grypen', cursive;
+  font-size: 30px;
+  background-color: black;
+  border: double 2px white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+}
+.info{
+  position:fixed;
+  display: block;
+  left:0px;
+  top:0px;
+  width: 200px;
+  border-style: solid;
+  border-color: rgb(7, 245, 233);
+  margin-top: 40px;
+  margin-left: 10px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  direction: ltr;
+}
+.profile_pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 20px auto 0 auto; /* centers horizontally */
+  border: 5px solid white;
+  display: block; /* ensures it stacks above the paragraph */
+}
+
+.description {
+  display: block;
+  color: black;
+  font-family: "Arial", sans-serif;
+  background-color: rgb(244, 208, 5);
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: justify;
+}
+
+ul {
+  list-style-type: none;
+  /* margin-left:205px ; <-- REMOVE this */
+  margin-top: 0px; /* Keep this, but we'll use 'top' for positioning */
+  width: 70px;
+  background-color: #03fb5d;
+  position: fixed;
+  overflow: auto;
+  /* ADD these for fixed positioning */
+  top: 40px; 
+  left: 215px; 
+  margin: 0; /* Ensures all default margins are gone */
+  height: 76.7%;
+  padding: 0;
+}
+
+li a {
+  display: inline-block;
+  color: black;
+  margin-left: 0px;
+  margin-top: 10px;
+  border-bottom: solid;
+  border-color: white;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #fafafa;
+  color: rgb(6, 6, 6);
+}
+
+li a:hover:not(.active) {
+  background-color: #555555;
+  color: rgba(52, 173, 54, 0.619);
+}
