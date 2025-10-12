@@ -1,0 +1,17 @@
+<section class="qualification-details-section">
+            <h2 class="section-title">Academic Qualifications</h2>
+            <div class="qualification-list">
+                {% for degree in education %}
+                    <div class="degree-card">
+                        <h3>{{ degree.title }}</h3>
+                        <p class="location-year">
+                            From **{{ degree.location }}** <br>
+                            {% if 'Year' in degree %}
+                            in **{{ degree.Year }}**
+                            {% endif %}
+                        </p>
+                        <a href="#certificate-{{ loop.index }}" class="button">See Certificates</a>
+                    </div>
+                {% endfor %}
+            </div>
+ </section>
