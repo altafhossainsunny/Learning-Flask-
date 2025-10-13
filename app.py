@@ -29,6 +29,7 @@ QUALIFICATIONS= [
     'id': 5,
     'title': 'B.Sc in Computer Science',
     'location': 'Albukhary International University, Kedah, Malaysia',
+    'year': '2026'
   }
 ]
 
